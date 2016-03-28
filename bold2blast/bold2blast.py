@@ -36,7 +36,6 @@ class bold2blast(object):
         sc = pybold.sequence.SequencesClient()
         self.seq_records = self.sc.get()
         
-        
     
     def write_fasta(self, path):
         '''Generate a fasta file from the search criteria''' 
