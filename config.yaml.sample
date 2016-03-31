@@ -1,16 +1,18 @@
 general:
-	makeblastdb-bin: /usr/bin/makeblastdb # Leave blank if makeblastdb is on the PATH
-	default-destination: # Location to write database to.  Leave blank if setting custom destination for each database.
+  makeblastdb-bin: /usr/bin/makeblastdb # Leave blank if makeblastdb is on the PATH
+  default-destination: './' # Location to write database to.  Leave blank if setting custom destination for each database.
 databases:
-	ITS: # Database key must be unique
-		search-criteria:	# Criteria to search BOLD.  Leave fields blank or delete them 
-			taxon: # 
-			ids: # Array of IDs 
-			bin: # Array of bins
-			container: # Array of containers 
-			institutions: # Array of institutions
-			researchers: # Array of researchers
-			geo: # Array of geography
-			markers: ITS #Array of markers 
-		base-name: # Name of blast database 
-		destination: # Location to write blast database to.  Leave blank if default-destination is set unless you want to modify the destination.
+  ITS: # Database key must be unique
+    search-criteria: # Criteria to search BOLD.  Leave fields blank or delete them to avoid filtering on them.
+      taxon: oomycete # Array of taxonomy search fields
+      ids: # Array of IDs. See BOLD api for information.
+      bin: # Array of bins. See BOLD api for information.
+      container: # Array of containers . See BOLD api for information.
+      institutions: # Array of institutions. See BOLD api for information.
+      researchers: # Array of researchers. See BOLD api for information.
+      geo: # Array of geography. See BOLD api for information.
+      markers: ITS #Array of markers . See BOLD api for information.
+      base-name: # Name of blast database . See BOLD api for information.
+    destination: # Location to write blast database to.  Leave blank if default-destination is set unless you want to modify the destination.
+    blastdb-path: # Optional - overrides destination parameter and specifies the blastdb name
+    fasta-path: # Optional - overrides destination parameter and specifies the fasta name
