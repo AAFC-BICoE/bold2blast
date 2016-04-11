@@ -35,7 +35,6 @@ class bold2blast(object):
     def _fetch_sequences(self):
         sc = pybold.sequence.SequencesClient()
         self.seq_records = self.sc.get()
-        
     
     def write_fasta(self, path):
         '''Generate a fasta file from the search criteria''' 
@@ -43,8 +42,7 @@ class bold2blast(object):
             self._fetch_sequences()
             
         with open(path, "w+") as handle:
-            SeqIO.write('records', handle, "fasta")
-            
+            SeqIO.write(self.seq_records, handle, "fasta")
     
     def create_blastdb(self, blastdb_path, fasta_path=None, makeblastdb_bin=None):
         if makeblastdb_bin is None and not self._is_makeblastdb_on_path():
@@ -52,8 +50,7 @@ class bold2blast(object):
         if makeblastdb_bin is not None and not os.path.isfile(makeblastdb_bin):
             raise IOError('%s is not a valid path for the makeblastdb binary'.format(makeblastdb_bin))
         
-        
-        if fasta_path is None:
+    	if fasta_path is None:
             fasta_path = tempfile.mkstemp()
         
         self.write_fasta(fasta_path)
